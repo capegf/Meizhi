@@ -120,9 +120,14 @@ android {
         disable "InvalidPackage"
         lintConfig file("lint.xml")
     }
-    retrolambda {
-        jvmArgs '-noverify'
-    }
+   retrolambda {
+  jdk System.getenv("JAVA8_HOME")
+  oldJdk System.getenv("JAVA6_HOME")
+  javaVersion JavaVersion.VERSION_1_6
+  jvmArgs '-arg1', '-arg2'
+  defaultMethods false
+  incremental true
+}
 }
 
 
