@@ -119,16 +119,16 @@ android {
         disable "InvalidPackage"
         lintConfig file("lint.xml")
     }
-   retrolambda {
-  jdk System.getenv("JAVA8_HOME")
-  oldJdk System.getenv("JAVA6_HOME")
-  javaVersion JavaVersion.VERSION_1_6
-  jvmArgs '-arg1', '-arg2'
-  defaultMethods false
-  incremental true
-}
-}
 
+}
+retrolambda {
+    jdk System.getenv("JAVA8_HOME")
+    oldJdk System.getenv("JAVA6_HOME")
+    javaVersion JavaVersion.VERSION_1_6
+    jvmArgs '-Ddefault.client.encoding=GBK', '-Dfile.encoding=GBK', '-Duser.language=Zh'
+    defaultMethods false
+    incremental true
+}
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
